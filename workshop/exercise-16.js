@@ -12,4 +12,27 @@ let armstrongNumbers = [];
 
 // write your loop here...
 
+// Method ONE
+// for (let num = 0; num < 1000; num++) {
+//     let str = num.toString();
+//     let total = 0;
+//     for (let j = 0; j < str.length; j++) {
+//         total = total + parseInt(str[j]) ** 3;
+//     }
+//     if (num === total) {
+//         armstrongNumbers.push(num);
+//     }
+// }
+
+// Method TWO
+for (let num = 0; num < 1000; num++) {
+    let digit1 = Math.floor(num / 100);
+    let digit2 = Math.floor((num - digit1 * 100) / 10);
+    let digit3 = num - digit1 * 100 - digit2 * 10;
+
+    if (num === (digit1 ** 3 + digit2 ** 3 + digit3 ** 3)) {
+        armstrongNumbers.push(num);
+    }
+}
+
 console.log(armstrongNumbers);
